@@ -13,7 +13,7 @@ export default function HomePage() {
         }}
       >
         <Typography variant="h3" sx={{ fontWeight: 500, textAlign: "center" }}>
-          Welcome to the Contacts Manager App{" "}
+          Welcome to the Contacts Manager{" "}
           <span role="img" aria-label="Greeting icon">
             👋
           </span>
