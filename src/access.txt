@@ -1,0 +1,11 @@
+name: pox
+email: pox@gmail.com
+password: 1234567
+
+name: dox
+email: dox@mail.com
+password: 1234567
+
+name: lynx
+email: lynx@gmail.com
+password: 123qwer

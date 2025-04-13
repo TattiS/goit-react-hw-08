@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { login, logout, refreshUser, register } from "./operations";
 
 const handlePending = (state) => {
@@ -8,6 +9,7 @@ const handleRejection = (state, action) => {
   state.isLoading = false;
   state.isRefreshing = false;
   state.error = action.payload;
+  toast.error(action.payload);
 };
 
 const slice = createSlice({
