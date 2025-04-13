@@ -11,6 +11,7 @@ function NotFoundPage() {
       minHeight="100vh"
       textAlign="center"
       px={2}
+      bgcolor="#f9f9f9"
     >
       <Typography variant="h1" color="error" gutterBottom>
         404
@@ -21,7 +22,17 @@ function NotFoundPage() {
       <Typography variant="body1" mb={3}>
         Please, check the url
       </Typography>
-      <Button variant="contained" color="primary" component={RouterLink} to="/">
+      <Button
+        variant="contained"
+        color="primary"
+        component={RouterLink}
+        to="/"
+        sx={{
+          padding: "10px 20px",
+          borderRadius: "20px",
+          textTransform: "none",
+        }}
+      >
         Go back Home
       </Button>
     </Box>

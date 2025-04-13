@@ -10,7 +10,7 @@ import { PrivateRoute } from "../PrivateRoute.jsx";
 import { RestrictedRoute } from "../RestrictedRoute.jsx";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage.jsx"));
-const RegisterPage = lazy(() =>
+const RegistrationPage = lazy(() =>
   import("../../pages/RegistrationPage/RegistrationPage.jsx")
 );
 const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage.jsx"));
@@ -42,7 +42,7 @@ function App() {
                 path="/register"
                 element={
                   <RestrictedRoute
-                    component={<RegisterPage />}
+                    component={<RegistrationPage />}
                     redirectTo="/contacts"
                   />
                 }

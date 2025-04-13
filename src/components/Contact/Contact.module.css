@@ -24,6 +24,16 @@
   fill: #ffffff;
 }
 .btnDelete {
-  width: 88px;
-  height: 40px;
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s;
+  fill: #ffffff;
+}
+
+.btnDelete:hover {
+  transform: scale(1.1);
 }
