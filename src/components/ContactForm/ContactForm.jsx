@@ -56,8 +56,6 @@ function ContactForm() {
             name="name"
             variant="outlined"
             margin="normal"
-            error={<ErrorMessage name="name" />}
-            helperText={<ErrorMessage name="name" />}
           />
         </div>
 
@@ -73,8 +71,6 @@ function ContactForm() {
             type="tel"
             variant="outlined"
             margin="normal"
-            error={<ErrorMessage name="number" />}
-            helperText={<ErrorMessage name="number" />}
           />
         </div>
 

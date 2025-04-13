@@ -1,14 +1,25 @@
-import { Box } from "@mui/material";
+import { Container, Box } from "@mui/material";
 import AppBar from "../AppBar/AppBar";
 
 function Layout({ children }) {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <AppBar />
-      <Box component="main" sx={{ flexGrow: 1 }}>
-        {children}
+    <Container maxWidth="md">
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+          gap: 4,
+        }}
+      >
+        <AppBar />
+        <Box component="main" sx={{ flexGrow: 1 }}>
+          {children}
+        </Box>
       </Box>
-    </Box>
+    </Container>
   );
 }
 

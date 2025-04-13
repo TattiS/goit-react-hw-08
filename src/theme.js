@@ -6,24 +6,6 @@ const commonTypography = {
   lineHeight: 1.5,
 };
 
-const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-    background: {
-      default: "#ffffff",
-      paper: "#f9f9f9",
-    },
-    text: {
-      primary: "#213547",
-    },
-    primary: {
-      main: "#646cff",
-      dark: "#535bf2",
-    },
-  },
-  typography: commonTypography,
-});
-
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -35,11 +17,65 @@ const darkTheme = createTheme({
       primary: "rgba(255, 255, 255, 0.87)",
     },
     primary: {
-      main: "#646cff",
-      dark: "#535bf2",
+      main: "#4caf50",
+      contrastText: "#ffffff",
+    },
+    secondary: {
+      main: "#ff9800",
+      contrastText: "#ffffff",
+    },
+    error: {
+      main: "#f44336",
+      contrastText: "#ffffff",
     },
   },
   typography: commonTypography,
+  components: {
+    MuiButton: {
+      defaultProps: {
+        variant: "contained",
+        disableElevation: true,
+      },
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          borderRadius: "12px",
+          fontWeight: 600,
+          padding: "8px 20px",
+          transition: "0.3s ease",
+          "&:hover": {
+            transform: "translateY(-2px)",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+          },
+        },
+        containedPrimary: {
+          backgroundColor: "#4caf50",
+          "&:hover": {
+            backgroundColor: "#43a047",
+          },
+        },
+        containedSecondary: {
+          backgroundColor: "#ff9800",
+          "&:hover": {
+            backgroundColor: "#fb8c00",
+          },
+        },
+        containedError: {
+          backgroundColor: "#f44336",
+          "&:hover": {
+            backgroundColor: "#d32f2f",
+          },
+        },
+        outlinedPrimary: {
+          border: "2px solid #4caf50",
+          color: "#4caf50",
+          "&:hover": {
+            backgroundColor: "#e8f5e9",
+          },
+        },
+      },
+    },
+  },
 });
 
-export { lightTheme, darkTheme };
+export { darkTheme };
