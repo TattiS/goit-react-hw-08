@@ -15,7 +15,10 @@ function ContactForm() {
       .max(50, "Too Long!")
       .required("Required"),
     number: Yup.string()
-      .matches(/^\d{3}-\d{2}-\d{2}$/, "Check the format: 333-33-33")
+      .matches(
+        /^\d{3}-\d{2}-\d{2}$/,
+        "Phone number must be in format XXX-XX-XX"
+      )
       .min(3, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
@@ -41,49 +44,53 @@ function ContactForm() {
   return (
     <Formik
       initialValues={initInfo}
-      onSubmit={submitHandler}
       validationSchema={validScheme}
+      onSubmit={submitHandler}
     >
-      <Form>
-        <div>
-          <label htmlFor={nameInputId}>
-            <Typography variant="h6">Name</Typography>
-          </label>
-          <Field
-            as={TextField}
-            fullWidth
-            id={nameInputId}
-            name="name"
-            variant="outlined"
-            margin="normal"
-          />
-        </div>
+      {() => (
+        <Form>
+          <Field name="name">
+            {({ field, meta }) => (
+              <TextField
+                {...field}
+                fullWidth
+                id={nameInputId}
+                label="Name"
+                variant="outlined"
+                margin="normal"
+                error={meta.touched && Boolean(meta.error)}
+                helperText={meta.touched && meta.error}
+              />
+            )}
+          </Field>
+          <Field name="number">
+            {({ field, meta }) => (
+              <TextField
+                {...field}
+                fullWidth
+                id={numberInputId}
+                label="Number"
+                variant="outlined"
+                margin="normal"
+                placeholder="123-45-67"
+                type="tel"
+                error={meta.touched && Boolean(meta.error)}
+                helperText={meta.touched && meta.error}
+              />
+            )}
+          </Field>
 
-        <div>
-          <label htmlFor={numberInputId}>
-            <Typography variant="h6">Number</Typography>
-          </label>
-          <Field
-            as={TextField}
+          <Button
             fullWidth
-            id={numberInputId}
-            name="number"
-            type="tel"
-            variant="outlined"
-            margin="normal"
-          />
-        </div>
-
-        <Button
-          fullWidth
-          type="submit"
-          variant="contained"
-          color="primary"
-          sx={{ mt: 2 }}
-        >
-          Add Contact
-        </Button>
-      </Form>
+            type="submit"
+            variant="contained"
+            color="primary"
+            sx={{ mt: 2 }}
+          >
+            Add Contact
+          </Button>
+        </Form>
+      )}
     </Formik>
   );
 }
